@@ -10,6 +10,7 @@ import MainLayout from './Components/MainLayout/Mainlayout';
 import Tutorials from './Components/Tutorials/Tutorials';
 import Learning from './Components/Learning/Learning';
 import AboutUs from './Components/AboutUs/AboutUs';
+import LessonDetails from './Components/lessonDetails/LessonDetails';
 
 
 const router = createBrowserRouter([
@@ -23,7 +24,18 @@ const router = createBrowserRouter([
       },
       {
         path:'/learning',
-        element:<Learning></Learning>
+        element:<Learning></Learning>,
+        loader:()=>fetch("/category.json"),
+        children:[
+          {
+            path:'/learning/:id',
+            element:<LessonDetails></LessonDetails>,
+            loader: ({ params }) =>
+              fetch(
+                `/learning/${params.id}`
+              ),
+          }
+        ] 
       },
       {
         path:'/tutorials',

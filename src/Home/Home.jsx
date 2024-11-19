@@ -1,3 +1,4 @@
+import Success from "../Components/Success/Success";
 
 
 const Home = () => {
@@ -77,6 +78,9 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+            </section>
+            <section>
+                <Success></Success>
             </section>
 
            {/* why choose lingo bingo */}
