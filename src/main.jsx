@@ -11,6 +11,12 @@ import Tutorials from './Components/Tutorials/Tutorials';
 import Learning from './Components/Learning/Learning';
 import AboutUs from './Components/AboutUs/AboutUs';
 import LessonDetails from './Components/lessonDetails/LessonDetails';
+import AuthProvider from './Provider/AuthProvider';
+import AuthLayout from './Components/Layouts/AuthLayout/AuthLayout';
+import Login from './Components/Pages/Login';
+import Register from './Components/Pages/Register';
+import PrivateRoute from './routes/Privateroutes/PrivateRoute';
+import Profile from './Components/Profile/Profile';
 
 
 
@@ -45,7 +51,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/learning/:lesson_no',
-    element: <LessonDetails></LessonDetails>,
+    element: <PrivateRoute><LessonDetails></LessonDetails></PrivateRoute>,
     loader: async ({ params }) => {
       const response = await fetch('/languageData.json');
       const lessons = await response.json();
@@ -56,14 +62,38 @@ const router = createBrowserRouter([
     }
 
   },
+  {
+          path:"/profile",
+          element:<PrivateRoute><Profile></Profile></PrivateRoute>
+  },
 
-  
+  {
+    path: "auth",
+    element: <AuthLayout></AuthLayout>,
+    children:[
+      {
+        path:'/auth/login',
+        element: <Login></Login>
+      },
+      {
+         path:'/auth/register',
+         element: <Register></Register>
+      }
+    ]
+  },
+  {
+    path: "*",
+    element: <h1>Error</h1>,
+  },
+
 
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    
+
+    <AuthProvider>
       <RouterProvider router={router} />
-    
+    </AuthProvider>
+
   </StrictMode>,
 )

@@ -1,14 +1,20 @@
+import { Link } from "react-router-dom";
 import Success from "../Components/Success/Success";
 
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
 const Home = () => {
+    useEffect(() => {
+        AOS.init({ duration: 1000 });
+      }, []);
     return (
         <div className="">
             <section className="slider">
                 <div className="carousel w-full">
                     <div id="slide1" className="carousel-item relative w-full">
                         <img
-                            src="https://i.ibb.co.com/Krwr5Mj/images.jpg"
+                            src="https://i.ibb.co.com/vh8CGtQ/abcb1d54-240e-4c5b-bbb1-0e62c7ef678e.jpg"
                             className="w-full md:h-[400px] mx-auto rounded-md" />
                         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                             <a href="#slide4" className="btn btn-circle">❮</a>
@@ -26,7 +32,7 @@ const Home = () => {
                     </div>
                     <div id="slide3" className="carousel-item relative w-full">
                         <img
-                            src="https://i.ibb.co.com/ryfK95K/istockphoto-1032296056-612x612.jpg"
+                            src="https://i.ibb.co.com/QJjZwBj/d6ccd21b-0fbe-49fd-b967-bcefbca40717.jpg"
                             className="w-full md:h-[400px] mx-auto rounded-md" />
                         <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
                             <a href="#slide2" className="btn btn-circle">❮</a>
@@ -45,34 +51,33 @@ const Home = () => {
                 </div>
             </section>
 
-             {/* About lingo bingo */}
-            <section className="bg-gradient-to-r from-blue-100 to-blue-50 py-12">
+            {/* About lingo bingo */}
+            <section id="about" className="bg-gradient-to-r from-blue-100 to-blue-50 py-12">
                 <div className="container mx-auto px-6 lg:px-20">
                     <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
-                        
-                        <div className="flex justify-center">
+                        {/* Left Image Section */}
+                        <div data-aos="fade-right" className="flex justify-center">
                             <img
-                                src="https://i.ibb.co.com/k9cvjmj/learn-japanese-300x200.jpg"
+                                src="https://i.ibb.co.com/HVrWdkd/group-people-working-with-gadgets.jpg"
                                 alt="Language Learning Illustration"
-                                className="md:w-[400px] md:h-[400px] rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105"
+                                className="rounded-lg shadow-lg"
                             />
                         </div>
 
-                       
-                        <div className="space-y-6">
-                            <h2 className="text-4xl font-bold text-blue-700">
-                                About Lingo Bingo
-                            </h2>
+                        {/* Right Text Section */}
+                        <div data-aos="fade-left" className="space-y-6">
+                            <h2 className="text-4xl font-bold text-blue-700">About Lingo Bingo</h2>
                             <p className="text-gray-600 text-lg">
                                 Welcome to <strong>Lingo Bingo</strong>! Our mission is to make language learning fun, engaging, and accessible for everyone.
-                                Whether you’re a beginner or looking to expand your vocabulary, our app provides interactive lessons tailored to your needs.
+                                Whether you’re a beginner or looking to expand your vocabulary, our app provides interactive lessons
+                                tailored to your needs.
                             </p>
                             <ul className="list-disc pl-5 text-gray-600">
                                 <li>Learn vocabulary with context-based examples and pronunciation.</li>
                                 <li>Track your progress and unlock new lessons as you improve.</li>
                                 <li>Interactive tutorials and videos to enhance your learning experience.</li>
                             </ul>
-                            <button className="btn btn-primary hover:bg-blue-600 transition-colors duration-300">
+                            <button className="btn btn-primary">
                                 Start Learning Now
                             </button>
                         </div>
@@ -83,7 +88,7 @@ const Home = () => {
                 <Success></Success>
             </section>
 
-           {/* why choose lingo bingo */}
+            {/* why choose lingo bingo */}
             <section className="py-12 bg-gray-50 my-5">
                 <div className="container mx-auto px-6 lg:px-20 text-center">
                     <h2 className="text-4xl font-bold text-blue-700 mb-6">
@@ -127,8 +132,8 @@ const Home = () => {
             </section>
 
 
-             {/* Users comments*/}
-            <section  className="py-12 bg-blue-50 my-5">
+            {/* Users comments*/}
+            <section className="py-12 bg-blue-50 my-5">
                 <div className="container mx-auto px-6 lg:px-20 text-center">
                     <h2 className="text-4xl font-bold text-blue-700 mb-6">
                         What Our Learners Say
@@ -174,7 +179,7 @@ const Home = () => {
                         </div>
                     </div>
                     <button className="btn btn-primary mt-6 hover:bg-blue-600 transition-colors duration-300">
-                        Start Learning Today
+                        <Link to="/learning">Start Learning Today</Link>
                     </button>
                 </div>
             </section>

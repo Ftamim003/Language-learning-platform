@@ -1,6 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
     return (
         <>
             <div className="">
@@ -18,6 +21,11 @@ const Navbar = () => {
                                     <li><NavLink to='/learning'>Start learning </NavLink></li>
                                     <li> <NavLink to="/tutorials">Tutorials</NavLink></li>
                                     <li><NavLink to='/about'> About Us  </NavLink></li>
+                                    {
+                                        user && <>
+                                            <li><NavLink to='/profile'> Profile  </NavLink></li>
+                                        </>
+                                    }
                                 </ul>
                             </div>
                             <div className="flex gap-3 items-center">
@@ -27,14 +35,28 @@ const Navbar = () => {
                         </div>
                         <div className="navbar-center hidden md:flex">
                             <ul className="menu menu-horizontal px-1 text-lg">
-                            <li ><NavLink to='/'> Home </NavLink></li>
-                                    <li><NavLink to='/learning'>Start learning </NavLink></li>
-                                    <li> <NavLink to="/tutorials">Tutorials</NavLink></li>
-                                    <li><NavLink to='/about'> About Us  </NavLink></li>
+                                <li ><NavLink to='/'> Home </NavLink></li>
+                                <li><NavLink to='/learning'>Start learning </NavLink></li>
+                                <li> <NavLink to="/tutorials">Tutorials</NavLink></li>
+                                <li><NavLink to='/about'> About Us  </NavLink></li>
+                                {
+                                    user && <>
+                                        <li><NavLink to='/profile'> Profile  </NavLink></li>
+                                    </>
+                                }
                             </ul>
                         </div>
                         <div className="navbar-end flex gap-3">
-                            
+                            {
+                                user && user?.email ? <div className="flex items-center gap-1">
+                                    <p><span className="">Welcome,</span> {user.displayName}</p>
+                                    <img className="w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
+
+                                </div> : ""
+                            }
+                            {
+                                user && user?.email ? <button onClick={logOut} className="btn btn-primary hover:bg-blue-600 transition-colors duration-300">Log-out</button> : <Link to='/auth/login' className="btn btn-primary hover:bg-blue-600 transition-colors duration-300">Login</Link>
+                            }
 
                         </div>
                     </div>
