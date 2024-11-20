@@ -1,10 +1,22 @@
-import { NavLink, Outlet, useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink,   } from "react-router-dom";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 
 const Learning = () => {
-    const data = useLoaderData()
+   
+    const [category, setCategory] = useState([]);
+    useEffect(() => {
+      fetch("/category.json")
+        .then((res) => res.json())
+        .then((data) => setCategory(data));
+    }, []);
     return (
         <div>
+            <div>
+                <Navbar></Navbar>
+            </div>
             <div className="text-center mb-10">
                 <h1 className="text-4xl font-bold text-blue-700">Lets Learn!</h1>
                 <p className="text-gray-600 mt-2">
@@ -13,7 +25,7 @@ const Learning = () => {
             </div>
             <div className=" mx-auto px-6 lg:px-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mb-12">
                 {
-                    data.map((category) => (
+                    category.map((category) => (
                         <NavLink key={category.id} to={`/learning/${category.lesson_no}`} className="bg-white shadow-md rounded-lg p-6 text-center hover:shadow-lg transition cursor-pointer">
                             <h2 className="text-2xl font-semibold text-blue-600">
                                 Lesson {category.lesson_no}
@@ -46,7 +58,9 @@ const Learning = () => {
                     </button>
                 </div>
             </div>
-            <Outlet></Outlet>
+            <div>
+                <Footer></Footer>
+            </div>
         </div>
     );
 };

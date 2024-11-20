@@ -13,43 +13,57 @@ import AboutUs from './Components/AboutUs/AboutUs';
 import LessonDetails from './Components/lessonDetails/LessonDetails';
 
 
+
+
+
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    children:[
+    children: [
       {
-        path:'/',
-        element:<Home></Home>
+        path: '/',
+        element: <Home></Home>
+      },
+
+      {
+        path: '/tutorials',
+        element: <Tutorials></Tutorials>,
       },
       {
-        path:'/learning',
-        element:<Learning></Learning>,
-        loader:()=>fetch("/category.json"),
-        children:[
-          {
-            path:'/learning/:id',
-            element:<LessonDetails></LessonDetails>,
-            loader: ({ params }) =>
-              fetch(
-                `/learning/${params.id}`
-              ),
-          }
-        ] 
-      },
-      {
-        path:'/tutorials',
-        element:<Tutorials></Tutorials>,
-      },
-      {
-        path:'/about',
-        element:<AboutUs></AboutUs>
+        path: '/about',
+        element: <AboutUs></AboutUs>
       }
     ]
   },
+  {
+    path: '/learning',
+    element: <Learning></Learning>,
+
+
+  },
+  {
+    path: '/learning/:lesson_no',
+    element: <LessonDetails></LessonDetails>,
+    loader: async ({ params }) => {
+      const response = await fetch('/languageData.json');
+      const lessons = await response.json();
+      const filterData = lessons.filter(
+        (lesson) => lesson.lesson_no === parseInt(params.lesson_no)
+      );
+      return { lesson_no: params.lesson_no, words: filterData };
+    }
+
+  },
+
+  
+
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    
       <RouterProvider router={router} />
+    
   </StrictMode>,
 )
