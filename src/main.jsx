@@ -17,6 +17,9 @@ import Login from './Components/Pages/Login';
 import Register from './Components/Pages/Register';
 import PrivateRoute from './routes/Privateroutes/PrivateRoute';
 import Profile from './Components/Profile/Profile';
+import ForgetPassword from './Components/Pages/ForgetPassword';
+import NotFound from './Components/NotFound/NotFound';
+import UpdateProfile from './Components/Profile/UpdateProfile';
 
 
 
@@ -78,13 +81,27 @@ const router = createBrowserRouter([
       {
          path:'/auth/register',
          element: <Register></Register>
-      }
+      },
+      {
+        path:'/auth/forgetPassword',
+        element: <ForgetPassword></ForgetPassword>
+     },
+     {
+      path:'/auth/updateProfile',
+      element:<PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
+   },
+     
     ]
   },
+  
   {
     path: "*",
-    element: <h1>Error</h1>,
+    element: <NotFound></NotFound>,
   },
+
+
+
+  
 
 
 ]);

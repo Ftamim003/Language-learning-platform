@@ -2,6 +2,7 @@ import { useContext } from "react";
 import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { Link } from "react-router-dom";
 
 const Profile = () => {
     const { user } = useContext(AuthContext)
@@ -28,7 +29,7 @@ const Profile = () => {
           {/* Header */}
           <div className="bg-gradient-to-r from-blue-600 to-indigo-600 p-6 text-center">
             <img
-              src={user.image || "https://via.placeholder.com/150"}
+              src={user?.photoURL || "https://via.placeholder.com/150"}
               alt="User"
               className="w-32 h-32 rounded-full border-4 border-white mx-auto mb-4 shadow-lg"
             />
@@ -78,7 +79,8 @@ const Profile = () => {
               className="btn btn-primary px-6 py-2 text-lg font-semibold rounded-full hover:bg-blue-600 transition-colors duration-300"
               
             >
-              Update Profile
+             
+              <Link to="/auth/updateProfile">Update Profile</Link>
             </button>
           </div>
         </div>

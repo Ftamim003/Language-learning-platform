@@ -34,8 +34,13 @@ const Footer = () => {
                  <a className="link link-hover">Privacy policy</a>
                  <a className="link link-hover">Cookie policy</a>
              </nav>
+
          </footer>
-         
+          <div className="border-t bg-base-300 border-base-200 pt-4 text-center">
+    <p className="text-sm">
+      &copy; {new Date().getFullYear()} Lingo Bingo. All rights reserved.
+    </p>
+  </div>
      </div>
     );
 };

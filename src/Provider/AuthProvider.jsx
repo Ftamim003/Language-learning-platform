@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "../firebase/firebase.config";
 
@@ -10,6 +10,7 @@ const AuthProvider = ({children}) => {
     
     const [loading,setLoading]=useState(true);
 
+    
     const createNewUser=(email,password)=>{
      setLoading(true);
      return createUserWithEmailAndPassword(auth,email,password)
@@ -33,6 +34,19 @@ const AuthProvider = ({children}) => {
         return updateProfile(auth.currentUser,updatedData)
     }
     
+     const forgetPassword= (email)=>{
+        return sendPasswordResetEmail(auth,email)
+     }
+
+
+     const updateUserProfile = async (profile) => {
+        if (auth.currentUser) {
+            return await updateProfile(auth.currentUser, profile);
+        }
+        throw new Error("No authenticated user found.");
+    };
+
+
     useEffect(()=>{
         const unsubscribe=onAuthStateChanged(auth,(currentUser)=>{
             setUser(currentUser)
@@ -51,6 +65,8 @@ const AuthProvider = ({children}) => {
         loading,
         updateProfileUser,
         googleSignIn,
+        forgetPassword,
+        updateUserProfile,
    }
     return <AuthContext.Provider value={authInfo}>
             {children}

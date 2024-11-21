@@ -3,9 +3,12 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 
+
 const Login = () => {
-    const { userLogin, setUser ,googleSignIn } = useContext(AuthContext);
+    const { userLogin, setUser, googleSignIn, } = useContext(AuthContext);
     const [error, setError] = useState({});
+    const [email, setEmail] = useState("")
+    
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -13,7 +16,7 @@ const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
 
-        const email = e.target.email.value;
+        //const email = e.target.email.value;
         const password = e.target.password.value
 
         userLogin(email, password)
@@ -27,12 +30,19 @@ const Login = () => {
             });
     }
 
-    const handleGoogleSignIn=()=>{
+    const handleGoogleSignIn = () => {
         googleSignIn()
-        .then(()=>{
-            navigate(location?.state ? location.state : "/");
-        })
+        .then(() => {
+                navigate(location?.state ? location.state : "/");
+            })
     }
+
+    // const handleForgetPassword=()=>{
+
+
+    // }
+
+
 
     return (
         <div className="min-h-screen flex justify-center items-center">
@@ -43,7 +53,15 @@ const Login = () => {
                         <label className="label">
                             <span className="label-text">Email</span>
                         </label>
-                        <input name='email' type="email" placeholder="email" className="input input-bordered" required />
+                        <input
+                            name="email"
+                            type="email"
+                            placeholder="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)} 
+                            className="input input-bordered"
+                            required
+                        />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -57,21 +75,26 @@ const Login = () => {
                                 </label>
                             )
                         }
-                        <label className="label">
-                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
+                        <Link
+                            to="/auth/forgetPassword"
+                            state={{ email}}
+                            className="label"
+                        >
+                            <span className="label-text-alt link link-hover">Forgot password?</span>
+                        </Link>
+
                     </div>
-                    
+
                     <div className="form-control mt-6">
                         <button className="btn btn-primary hover:bg-blue-600 transition-colors duration-300">Login</button>
                     </div>
                 </form>
                 <p className="text-center font-semibold"> Dont have an account? <Link className="text-red-500" to='/auth/register'>Register</Link></p>
-                  <div className="*:w-full mt-5">
-                        <button onClick={handleGoogleSignIn} className="btn text-blue-600">
-                            <FaGoogle></FaGoogle> Login with Google
-                        </button>
-                    </div>
+                <div className="*:w-full mt-5">
+                    <button onClick={handleGoogleSignIn} className="btn text-blue-600">
+                        <FaGoogle></FaGoogle> Login with Google
+                    </button>
+                </div>
             </div>
 
 

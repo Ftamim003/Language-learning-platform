@@ -20,7 +20,7 @@ const Navbar = () => {
                                     <li><NavLink to='/'> Home </NavLink></li>
                                     <li><NavLink to='/learning'>Start learning </NavLink></li>
                                     <li> <NavLink to="/tutorials">Tutorials</NavLink></li>
-                                    <li><NavLink to='/about'> About Us  </NavLink></li>
+                                    {/* <li><NavLink to='/about'> About Us  </NavLink></li> */}
                                     {
                                         user && <>
                                             <li><NavLink to='/profile'> Profile  </NavLink></li>
@@ -38,7 +38,7 @@ const Navbar = () => {
                                 <li ><NavLink to='/'> Home </NavLink></li>
                                 <li><NavLink to='/learning'>Start learning </NavLink></li>
                                 <li> <NavLink to="/tutorials">Tutorials</NavLink></li>
-                                <li><NavLink to='/about'> About Us  </NavLink></li>
+                                {/* <li><NavLink to='/about'> About Us  </NavLink></li> */}
                                 {
                                     user && <>
                                         <li><NavLink to='/profile'> Profile  </NavLink></li>

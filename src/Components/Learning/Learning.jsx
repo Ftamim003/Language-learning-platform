@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink,   } from "react-router-dom";
+import { Link, NavLink,   } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 
@@ -43,7 +43,8 @@ const Learning = () => {
                     <div className="aspect-w-16 aspect-h-9 mb-8">
                         <iframe
                             className="w-full h-full"
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                            src="https://youtu.be/ZGGufccTLso?si=KWbiOlG1SyXbnuhf
+"
                             title="Learn Alphabet"
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -54,7 +55,8 @@ const Learning = () => {
                         className="btn btn-primary hover:bg-blue-600 transition-colors duration-300"
                         
                     >
-                        View More Tutorials
+                       
+                        <Link to="/tutorials"> View More Tutorials</Link>
                     </button>
                 </div>
             </div>

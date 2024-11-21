@@ -78,7 +78,7 @@ const Home = () => {
                                 <li>Interactive tutorials and videos to enhance your learning experience.</li>
                             </ul>
                             <button className="btn btn-primary">
-                                Start Learning Now
+                            <Link to="/learning">Start Learning Now</Link>
                             </button>
                         </div>
                     </div>
