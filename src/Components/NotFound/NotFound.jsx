@@ -10,7 +10,7 @@ const NotFound = () => {
                 Oops! Page Not Found
             </h2>
             <p className="text-gray-500 mb-8 text-center px-6">
-                The page you're looking for doesn't exist. It might have been removed or the URL might be incorrect.
+                The page youre looking for doesnt exist. It might have been removed or the URL might be incorrect.
             </p>
             <Link to="/" className="btn btn-primary hover:bg-blue-600 transition-colors duration-300">
                 Go Back to Home
