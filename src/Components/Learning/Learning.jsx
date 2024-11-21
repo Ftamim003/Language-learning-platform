@@ -43,7 +43,7 @@ const Learning = () => {
                     <div className="aspect-w-16 aspect-h-9 mb-8">
                         <iframe
                             className="w-full h-full"
-                            src="https://youtu.be/ZGGufccTLso?si=KWbiOlG1SyXbnuhf
+                            src="https://www.youtube.com/embed/rGrBHiuPlT0?si=DGTW1pnH5ynB5zpz
 "
                             title="Learn Alphabet"
                             frameBorder="0"

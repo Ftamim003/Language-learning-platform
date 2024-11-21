@@ -22,7 +22,19 @@ const LessonDetails = () => {
       return 'bg-gray-100 border-gray-400';
     }
   };
+
+  const pronounceWord = (word) => {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = "ja-JP"; 
+    speechSynthesis.speak(utterance);
+  };
   
+
+  const handleWordClick = (word) => {
+     setSelectedWord(word); 
+    pronounceWord(word.word); 
+  };
+
     return (
         <div>
            <header>
@@ -44,6 +56,7 @@ const LessonDetails = () => {
               className={`shadow-md rounded-lg p-6 border ${getCardColor(
                 word.difficulty
               )} text-center hover:shadow-lg transition`}
+              onClick={() => handleWordClick(word)}
             >
               <h3 className="text-xl font-semibold text-blue-600">{word.word}</h3>
               <p className="text-gray-600">Meaning: {word.meaning}</p>
@@ -51,7 +64,10 @@ const LessonDetails = () => {
               <p className="text-gray-500">Part of Speech: {word.part_of_speech}</p>
               <button
                 className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition"
-                onClick={() => setSelectedWord(word)}
+                onClick={() => {
+                  setSelectedWord(word);
+                  pronounceWord(word.word); // Pronounce the word when clicked
+                }}
               >
                 When to Say
               </button>

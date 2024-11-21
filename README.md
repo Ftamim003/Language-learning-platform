@@ -1,8 +1,18 @@
-# React + Vite
+# Live Link
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+### Project Description 
+This project is an interactive vocabulary learning platform designed to help users enhance their language skills. It provides a seamless way to explore lessons, learn new words, and understand their meanings, pronunciations, and usage through engaging, user-friendly features.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Key Features
+Lesson-based Vocabulary Learning: Users can navigate through lessons to discover new words with meanings, pronunciations, and examples.
+Word Pronunciation: Words are pronounced automatically when users click on a vocabulary card using the Web Speech API.
+Interactive Modal: Detailed information about a word, including its meaning, usage context, and examples, is shown in a modal upon selection.
+Responsive Design: A responsive layout ensures compatibility with various devices.
+Navigation: Smooth navigation between lessons and the home page using react-router-dom.
+
+
+### NPM packages used
+react-router-dom: For handling routing and navigation between different pages.
+tailwindcss: For modern and responsive styling.
+react: For building the interactive and component-based user interface.

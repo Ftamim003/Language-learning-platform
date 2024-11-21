@@ -29,10 +29,31 @@ const Footer = () => {
                  <a className="link link-hover">Press kit</a>
              </nav>
              <nav>
-                 <h6 className="footer-title">Legal</h6>
-                 <a className="link link-hover">Terms of use</a>
-                 <a className="link link-hover">Privacy policy</a>
-                 <a className="link link-hover">Cookie policy</a>
+             <h6 className="footer-title">Follow Us</h6>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="flex items-center link link-hover">
+                        <img
+                            src="https://img.icons8.com/ios-filled/24/facebook--v1.png"
+                            alt="Facebook"
+                            className="mr-2"
+                        />
+                        Facebook
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="flex items-center link link-hover">
+                        <img
+                            src="https://img.icons8.com/ios-filled/24/twitter.png"
+                            alt="Twitter"
+                            className="mr-2"
+                        />
+                        Twitter
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center link link-hover">
+                        <img
+                            src="https://img.icons8.com/ios-filled/24/instagram-new.png"
+                            alt="Instagram"
+                            className="mr-2"
+                        />
+                        Instagram
+                    </a>
              </nav>
 
          </footer>

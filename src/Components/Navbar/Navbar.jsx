@@ -46,10 +46,10 @@ const Navbar = () => {
                                 }
                             </ul>
                         </div>
-                        <div className="navbar-end flex gap-3">
+                        <div className="navbar-end flex gap-7">
                             {
                                 user && user?.email ? <div className="flex items-center gap-1">
-                                    <p><span className="">Welcome,</span> {user.displayName}</p>
+                                    <p><span className="text-sm">Welcome,</span> {user.displayName}</p>
                                     <img className="w-10 h-10 rounded-full" src={user?.photoURL} alt="" />
 
                                 </div> : ""

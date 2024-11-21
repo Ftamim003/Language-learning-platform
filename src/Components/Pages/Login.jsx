@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
-
+import { toast } from "react-toastify";
 
 const Login = () => {
     const { userLogin, setUser, googleSignIn, } = useContext(AuthContext);
@@ -23,6 +23,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user
                 setUser(user)
+                toast.success(`Welcome, ${user.displayName || "User"}!`);
                 navigate(location?.state ? location.state : "/")
             })
             .catch((err) => {

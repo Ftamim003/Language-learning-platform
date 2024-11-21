@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import Success from "../Components/Success/Success";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -9,7 +11,11 @@ const Home = () => {
         AOS.init({ duration: 1000 });
       }, []);
     return (
+
+         
+
         <div className="">
+             <ToastContainer position="top-center" autoClose={3000} />
             <section className="slider">
                 <div className="carousel w-full">
                     <div id="slide1" className="carousel-item relative w-full">
