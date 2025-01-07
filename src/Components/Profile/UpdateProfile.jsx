@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const UpdateProfile = () => {
-    const { user, updateUserProfile } = useContext(AuthContext); // Assuming you have `updateUserProfile` in AuthContext
+    const { user, updateUserProfile } = useContext(AuthContext); 
     const [name, setName] = useState(user?.displayName || "");
     const [photoURL, setPhotoURL] = useState(user?.photoURL || "");
     const navigate = useNavigate();

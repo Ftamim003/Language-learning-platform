@@ -110,6 +110,8 @@ const LessonDetails = () => {
       )}
 
 
+
+
            <div>
            <Footer></Footer>
            </div>
