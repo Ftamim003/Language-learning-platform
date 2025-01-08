@@ -6,11 +6,11 @@ Lingo Bingo
 This project is an interactive vocabulary learning platform designed to help users enhance their language skills. It provides a seamless way to explore lessons, learn new words, and understand their meanings, pronunciations, and usage through engaging, user-friendly features.
 
 ### Key Features
-Lesson-based Vocabulary Learning: Users can navigate through lessons to discover new words with meanings, pronunciations, and examples.
-Word Pronunciation: Words are pronounced automatically when users click on a vocabulary card using the Web Speech API.
-Interactive Modal: Detailed information about a word, including its meaning, usage context, and examples, is shown in a modal upon selection.
-Responsive Design: A responsive layout ensures compatibility with various devices.
-Navigation: Smooth navigation between lessons and the home page using react-router-dom.
+- Lesson-based Vocabulary Learning: Users can navigate through lessons to discover new words with meanings, pronunciations, and examples.
+- Word Pronunciation: Words are pronounced automatically when users click on a vocabulary card using the Web Speech API.
+- Interactive Modal: Detailed information about a word, including its meaning, usage context, and examples, is shown in a modal upon selection.
+- Responsive Design: A responsive layout ensures compatibility with various devices.
+- Navigation: Smooth navigation between lessons and the home page using react-router-dom.
 
 ### Frontend
 - **HTML5**  
@@ -55,7 +55,7 @@ Navigation: Smooth navigation between lessons and the home page using react-rout
 - **[Sort By](https://www.npmjs.com/package/sort-by)**: Version `^1.2.0` - For sorting data arrays.
 
 
-### Guideline to the project in local machine
+### Guideline to run the project in local machine
   - git clone from the repository in command prompt
   - -> change directory
   - -> after that npm install
