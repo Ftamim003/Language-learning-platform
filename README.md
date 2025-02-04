@@ -73,4 +73,14 @@ Follow these steps to set up and run the project:
 3. **Install dependencies**  
    ```sh
    npm install
+
+4. **Start the development server**  
+   ```sh
+   npm run dev
+
+5. **Open the project in VS Code (optional)**  
+   ```sh
+   code .
+
+   
    
